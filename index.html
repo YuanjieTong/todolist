@@ -303,6 +303,8 @@
     function render() {
       const arrStr = localStorage.getItem("todolist")
       let newArr = groupByDate(JSON.parse(arrStr))
+      if (newArr === undefined) return
+      
       newArr.sort(function (a, b) {
         return b[0].timeStamp - a[0].timeStamp
       })
@@ -310,8 +312,7 @@
       const contentEle = document.querySelector(".todolist-content")
       const newContentEle = document.createElement("dl")
       newContentEle.classList.add("todolist-content")
-
-      if (newArr === undefined) return
+      
       newArr.forEach((items) => {
         const itemDiv = document.createElement("div")
         itemDiv.classList.add("todolist-item")
