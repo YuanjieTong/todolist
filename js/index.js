@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const mask = document.querySelector(".mask")
   const confirmBtn = document.querySelector(".confirm-btn")
   const cancelBtn = document.querySelector(".cancel-btn")
-  const tomatoEditBtn = document.querySelector(".tomato-list .edit-btn")
 
+  // 渲染
   render()
 
   addIpt.addEventListener("keyup", function (e) {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const arr = JSON.parse(arrStr) || []
 
       arr.forEach((item) => {
-        if (item.timeStamp == e.target.parentNode.parentNode.dataset.timeStamp) {
+        if (item.timeStamp == e.target.parentNode.parentNode.parentNode.dataset.timeStamp) {
           item.complete = !item.complete
         }
       })
@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 是否可编辑按钮
   listBox.addEventListener("click", function (e) {
     if (e.target.classList.contains("edit-btn")) {
+      e.preventDefault()
       if (e.target.innerText === "编辑") {
         e.target.parentNode.parentNode.classList.add("active")
         e.target.innerText = "确认"
@@ -129,11 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   })
-
-  // 组织默认行为
-  tomatoEditBtn.addEventListener("click", e => e.preventDefault())
-
-
 
   //构造函数
   function Item(content) {
