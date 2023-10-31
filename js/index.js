@@ -132,19 +132,27 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 
   //构造函数
-  function Item(content) {
+  function Item(content, tomatoNum = 0) {
     this.timeStamp = Date.now()
     this.content = content
     this.complete = false
-    this.tomatoNum = 0
+    this.tomatoNum = tomatoNum
   }
 
 
   // 根据localStorage渲染
   function render() {
     const arrStr = localStorage.getItem("todolist")
-    let newArr = groupByDate(JSON.parse(arrStr))
-    if (newArr === undefined) return
+    let arr = JSON.parse(arrStr)
+    // 第一次使用的话生成两个提示
+    if (!arr) {
+      arr = [
+        new Item("第一次使用？在上面的 todolist 中输入内容，按回车，即可创建待办事项。", 3),
+        new Item("待办事项左下角点击编辑，即可选择使用了几个番茄时间。", 4)
+      ]
+      localStorage.setItem("todolist", JSON.stringify(arr))
+    }
+    let newArr = groupByDate(arr)
 
     newArr.sort(function (a, b) {
       return b[0].timeStamp - a[0].timeStamp
