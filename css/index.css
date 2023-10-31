@@ -194,7 +194,7 @@ p {
   display: block;
   height: 12px;
   width: 12px;
-  background-image: url("./tomato.png");
+  background-image: url("https://yuanjietong.github.io/todolist/img/tomato.png");
   background-size: cover;
   background-origin: content-box;
   background-repeat: no-repeat;
@@ -205,15 +205,15 @@ p {
 }
 
 .tomato-list.active:has(.tomato:hover) .tomato {
-  background-image: url("./tomato-active.png");
+  background-image: url("https://yuanjietong.github.io/todolist/img/tomato-active.png");
 }
 
 .tomato-list .tomato.active {
-  background-image: url("./tomato-active.png");
+  background-image: url("https://yuanjietong.github.io/todolist/img/tomato-active.png");
 }
 
 .tomato-list.active .tomato:hover~.tomato {
-  background-image: url("./tomato.png");
+  background-image: url("https://yuanjietong.github.io/todolist/img/tomato.png");
 }
 
 .tomato-first {
@@ -224,7 +224,7 @@ p {
 }
 
 .tomato-list.active .tomato-first:hover~.tomato {
-  background-image: url("./tomato.png");
+  background-image: url("https://yuanjietong.github.io/todolist/img/tomato.png");
 }
 
 .tomato-list .edit-btn {
