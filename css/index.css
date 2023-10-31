@@ -216,7 +216,7 @@ p {
   background-image: url("https://yuanjietong.github.io/todolist/img/tomato.png");
 }
 
-.tomato-first {
+.tomato-list.active .tomato-first {
   width: 10px;
   margin-left: -10px;
   height: 12px;
