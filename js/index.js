@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const confirmBtn = document.querySelector(".confirm-btn")
   const cancelBtn = document.querySelector(".cancel-btn")
   const tomatoEditBtn = document.querySelector(".tomato-list .edit-btn")
-  // const tomatoList = document.querySelector(".tomato-list")
 
   render()
 
@@ -58,7 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // 番茄点击事件
   listBox.addEventListener("click", function (e) {
 
-    if (e.target.classList.contains("tomato") || e.target.classList.contains("tomato-first")) {
+    if (
+      (e.target.classList.contains("tomato") || e.target.classList.contains("tomato-first")) &&
+      e.target.parentNode.classList.contains("active")
+    ) {
       // 获取被点击的dd元素
       const ddEle = e.target.parentNode.parentNode.parentNode
 
